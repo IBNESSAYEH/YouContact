@@ -12,7 +12,7 @@
 <body>
     <div class="form-container">
         <h2>Log in</h2>
-        <form class='row px-5 justify-content-center'>
+        <form class='row px-5 justify-content-center' action="../includes/formLoginHandler.inc.php" method="POST">
          
             <div class="col-12 ">
                   <div class="form-group text-center">
@@ -21,7 +21,7 @@
             </div> 
             <div class="form-group text-center">
                 <label for="exampleInputPassword1">Password:</label>
-                <input type="password" id="exampleInputPassword1" >
+                <input type="password" name="password" id="exampleInputPassword1" >
             </div>
             </div>
           
