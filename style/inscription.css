@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+
+
+        :root {
+            --main-text-color: white;
+            --second-text-color: black;
+            --main-bg-color: #21209C;
+            --second-bg-color: white;
+            --main-btn-bg-color: #7171ff;
+        }
+        
+        body {
+            min-height: 100Vh;
+            max-height: fit-content;
+            background-color: var(--main-bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .form-container {
+            min-width: 50%;
+            max-width: fit-content;
+            margin: 0 auto;
+            background-color: var(--main-bg-color);
+            box-shadow: .2rem  .2rem   2rem   .1rem var(--second-text-color);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .form-container h2 {
+            color: var(--main-text-color);
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            color: var(--main-text-color);
+            display: block ;
+            font-weight: bold;
+        }
+        
+        .form-group input {
+            background-color: transparent;
+          
+            border: none;
+            border-bottom: 2px solid var(--main-text-color);
+            color: var(--second-text-color);
+            padding: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-bottom: 2px solid var(--main-btn-bg-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--main-btn-bg-color);
+            border: none;
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+        
+        .btn-primary:hover {
+            background-color: #5c5cff;
+        }
