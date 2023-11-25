@@ -9,20 +9,15 @@
     include("dbh.inc.php");
 
     // Prepare the SQL query with proper syntax and data binding
-    $sql = "SELECT 	nom,	prenom,	numero_tel,	email,	date_ajout	
+    $sql = "SELECT 	 nom,	prenom,	numero_tel,	email,	date_ajout
      FROM contacts ";
     $result = $conn->query($sql);
 
 
-    if (mysqli_num_rows($result) >= 0) {
-        // output data of each row
-        // while($row = mysqli_fetch_assoc($result)) {
-      
+    if (mysqli_num_rows($result) > 0) {   
+        ?>
 
-?>
-
-
-          <div class="container mt-4">
+<div class="container mt-4">
           <div class="row">
               <div class="col-12">
 
@@ -41,22 +36,22 @@
       </div>
       <div class="modal-body">
       <div class="container">
-    <form>
+    <form action="../includes/formContactsHandler.inc.php" method="POST">
       <div class="mb-3">
         <label for="nom" class="form-label">Nom</label>
-        <input type="text" class="form-control" id="nom">
+        <input type="text" class="form-control" name="nom">
       </div>
       <div class="mb-3">
         <label for="prenom" class="form-label">Prénom</label>
-        <input type="text" class="form-control" id="prenom">
+        <input type="text" class="form-control" name="prenom">
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" id="email">
+        <input type="email" class="form-control" name="email">
       </div>
       <div class="mb-3">
         <label for="numero" class="form-label">Numéro de téléphone</label>
-        <input type="tel" class="form-control" id="numero">
+        <input type="tel" class="form-control" name="telephone">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -90,26 +85,36 @@
                                   <th scope="col">Actions</th>
                               </tr>
                           </thead>
-                          <!-- <tbody>
+                          
+
+
+
+<?php
+    
+
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+           
+
+?>
+
+
+        <tbody>
                         
                               <tr>
-                                  <td> <?php $row["nom"]   ?></td>
-                                  <td><?php $row["prenom"]   ?></td>
-                                  <td><?php $row["numero_tel"]   ?></td>
-                                  <td><?php $row["email"]   ?></td>
-                                  <td><?php $row["date_ajout"]   ?></td>
+                                  <td> <?php echo  $row["nom"]   ?></td>
+                                  <td><?php echo   $row["prenom"]   ?></td>
+                                  <td><?php echo  $row["numero_tel"]   ?></td>
+                                  <td><?php echo  $row["email"]   ?></td>
+                                  <td><?php echo  $row["date_ajout"]   ?></td>
                                   <td>
                                       <button class="btn btn-sm btn-info"><i class="fas fa-edit"></i></button>
                                       <button class="btn btn-sm btn-danger ml-2"><i class="fas fa-trash"></i></button>
                                   </td>
                               </tr>
-                              <!-- Other contacts go here -->
+                             
                           </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div> -->
+              
 
 
 
@@ -126,7 +131,17 @@
 
 
 
-        // }
+        }
+        ?> 
+                </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+<?php
+    
+
       } else { ?>
 
 
