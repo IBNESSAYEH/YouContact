@@ -16,7 +16,7 @@ a, button{
     --second-text-color: #000000;
     --main-bg-color: #6c63ff ;
     --second-bg-color: white;
-    --main-btn-bg-color: #7171ff;
+    --main-btn-bg-color: #0707fb;
 }
 nav{
     color: var( --second-text-color);

@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Check if the query is executed successfully
     if (mysqli_query($conn, $sql)) {
-        header("Location: ../index.php");
+        header("Location: ../pages/login.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

@@ -11,20 +11,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Prepare the SQL query with proper syntax and data binding
     $sql = "SELECT email, mot_passe FROM users where email ='$email' and mot_passe = '$pass'";
     $result = $conn->query($sql);
-
-    // Check if the query is executed successfully
     if (mysqli_query($conn, $sql)) {
-        // header("Location: ../index.php");
+        header("Location: ../pages/contacts.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
 
-    if ($result->num_rows > 0) {
-        // output data of each row
-        header("Location: ../index.php");
-      } else {
-        echo "0 results";
-      }
+    
+    
+    
 
 
 
