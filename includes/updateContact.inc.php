@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    
 
     // Prepare the SQL query with proper syntax and data binding
-    $sql = "UPDATE contacts SET nom =  '$nom'  and prenom =  '$prenom'  and numero_tel =  '$telephone'  and email =  '$email'    and date_ajout = CURDATE() WHERE id = 22";
+    $sql = "UPDATE contacts SET nom =  '$nom'  , prenom =  '$prenom'  , numero_tel =  '$telephone'  , email =  '$email'    , date_ajout = CURDATE() WHERE id = 22";
 
     // Check if the query is executed successfully
     if (mysqli_query($conn, $sql)) {

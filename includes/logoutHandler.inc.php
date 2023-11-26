@@ -5,18 +5,19 @@
     // Include the database connection
     include("dbh.inc.php");
    
-$id = $_GET['id'];
+$id_user = $_GET['id'];
     // Prepare the SQL query with proper syntax and data binding
-    if($id){
-        $sql = "DELETE FROM contacts WHERE id = '$id'";
+    if($id_user){
+        $sql = "DELETE FROM users WHERE id = '$id_user'";
+        header("Location: ../index.php");
     }else{
 
-        $sql = "DELETE FROM contacts ";
+        header("Location: ../index.php");
     }
 
     // Check if the query is executed successfully
     if (mysqli_query($conn, $sql)) {
-        header("Location: ../pages/contacts.php");
+        header("Location: ../index.php");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }

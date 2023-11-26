@@ -1,18 +1,22 @@
 <?php
-
-// if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-// $email = $_POST["email"];
-// $pass = $_POST["password"];
-
-// Include the database connection
-include("dbh.inc.php");
-
-// Prepare the SQL query with proper syntax and data binding
-$sql = "SELECT 	 nom,	prenom,	numero_tel,	email,	date_ajout
-     FROM contacts ";
-$result = $conn->query($sql);
-
+   include("dbh.inc.php");
+if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["id"])) {
+    $id_user = $_GET["id"];
+    $sql = "SELECT c.id, c.nom, c.prenom, c.numero_tel, c.email, c.date_ajout
+            FROM contacts c, users u 
+            WHERE c.id_user = u.id AND u.id = ?";
+    
+    // Prepare the SQL statement
+    $stmt = mysqli_prepare($conn, $sql);
+    $id_user =  settype($a, "integer");
+    // Bind the parameter
+    mysqli_stmt_bind_param($stmt, "i", $id_user);
+    
+    // Execute the statement
+    mysqli_stmt_execute($stmt);
+    
+    // Get the result
+    $result = mysqli_stmt_get_result($stmt);
 
 if (mysqli_num_rows($result) > 0) {
     ?>
@@ -37,7 +41,9 @@ if (mysqli_num_rows($result) > 0) {
                             </div>
                             <div class="modal-body">
                                 <div class="container">
-                                    <form action="../includes/formContactsHandler.inc.php" method="POST">
+                                    <form action="../includes/formContactsHandler.inc.php?id=<?php
+                                        '$id_user'
+                                    ?>" method="POST">
                                         <div class="mb-3">
                                             <label for="nom" class="form-label">Nom</label>
                                             <input type="text" class="form-control" name="nom">
@@ -139,7 +145,9 @@ if (mysqli_num_rows($result) > 0) {
                             </div>
                             <div class="modal-body">
                                 <div class="container">
-                                    <form action="../includes/updateContact.inc.php" method="POST" target="_self">
+                                    <form action="../includes/updateContact.inc.php?id=<?php
+                                        '$id_user'
+                                    ?>" method="POST" target="_self">
                                         <div class="mb-3">
                                             <label for="nom" class="form-label text-dark">Nom</label>
                                             <input type="text" class="form-control" name="nom">
@@ -180,7 +188,8 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-                                        <a href="../pages/updateContact" class="btn btn-sm btn-danger ml-2"><i class="fas fa-trash"></i></a>
+                <a href="../includes/DeleteContacts.inc.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger ml-2"><i class="fas fa-trash"></i></a>
+
                                     </td>
                                 </tr>
 
@@ -240,7 +249,9 @@ if (mysqli_num_rows($result) > 0) {
                             </div>
                             <div class="modal-body">
                                 <div class="container">
-                                    <form action="../includes/formContactsHandler.inc.php" method="POST">
+                                    <form action="../includes/formContactsHandler.inc.php?id=<?php
+                                        '$id_user'
+                                    ?>" method="POST">
                                         <div class="mb-3">
                                             <label for="nom" class="form-label text-dark">Nom</label>
                                             <input type="text" class="form-control" name="nom">
@@ -286,7 +297,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 // Close the database connection
-mysqli_close($conn);
+mysqli_close($conn);}
 // } else {
 //     header("Location: ../index.php");
 // }
