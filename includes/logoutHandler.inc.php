@@ -5,10 +5,10 @@
     // Include the database connection
     include("dbh.inc.php");
    
-$id_user = $_GET['id'];
+$id_user = $_GET['id_user'];
     // Prepare the SQL query with proper syntax and data binding
     if($id_user){
-        $sql = "DELETE FROM users WHERE id = '$id_user'";
+        $sql = "DELETE FROM users,contacts WHERE users.id = contacts.id_user AND users.id =  '$id_user'";
         header("Location: ../index.php");
     }else{
 

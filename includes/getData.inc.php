@@ -8,7 +8,6 @@ if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET["id"])) {
     
     // Prepare the SQL statement
     $stmt = mysqli_prepare($conn, $sql);
-    $id_user =  settype($a, "integer");
     // Bind the parameter
     mysqli_stmt_bind_param($stmt, "i", $id_user);
     
@@ -25,57 +24,11 @@ if (mysqli_num_rows($result) > 0) {
         <div class="row">
             <div class="col-12">
 
+            <?php
+                    include_once("../components/modalFormAjoutContact.php")
+                ?>
 
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="fas fa-plus"></i> Ajouter
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Enter New Contact</h5>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container">
-                                    <form action="../includes/formContactsHandler.inc.php?id=<?php
-                                        '$id_user'
-                                    ?>" method="POST">
-                                        <div class="mb-3">
-                                            <label for="nom" class="form-label">Nom</label>
-                                            <input type="text" class="form-control" name="nom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="prenom" class="form-label">Prénom</label>
-                                            <input type="text" class="form-control" name="prenom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" name="email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="numero" class="form-label">Numéro de téléphone</label>
-                                            <input type="tel" class="form-control" name="telephone">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <a href="../includes/DeleteContacts.inc.php" class="btn btn-danger ml-2"><i class="fas fa-trash"></i> Supprimer Tout</a>
+                <a href="../includes/DeleteContacts.inc.php?&id_user=<?php echo $id_user; ?>" class="btn btn-danger ml-2"><i class="fas fa-trash"></i> Supprimer Tout</a>
             </div>
         </div>
         <div class="row mt-4">
@@ -145,26 +98,10 @@ if (mysqli_num_rows($result) > 0) {
                             </div>
                             <div class="modal-body">
                                 <div class="container">
-                                    <form action="../includes/updateContact.inc.php?id=<?php
-                                        '$id_user'
-                                    ?>" method="POST" target="_self">
-                                        <div class="mb-3">
-                                            <label for="nom" class="form-label text-dark">Nom</label>
-                                            <input type="text" class="form-control" name="nom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="prenom" class="form-label text-dark">Prénom</label>
-                                            <input type="text" class="form-control" name="prenom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="email" class="form-label text-dark">Email</label>
-                                            <input type="email" class="form-control" name="email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="numero" class="form-label text-dark">Numéro de téléphone</label>
-                                            <input type="tel" class="form-control" name="telephone">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <form action="../includes/updateContact.inc.php?id=<?php echo $row['id']; ?>&id_user=<?php echo $id_user; ?>" method="POST" target="_self">
+                                     <?php
+                                         include('../components/formContactsContent.php')
+                                     ?>
                                     </form>
                                 </div>
                             </div>
@@ -188,7 +125,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
 
-                <a href="../includes/DeleteContacts.inc.php?id=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger ml-2"><i class="fas fa-trash"></i></a>
+                <a href="../includes/DeleteContacts.inc.php?id=<?php echo $row['id']; ?>&id_user=<?php echo $id_user; ?>" class="btn btn-sm btn-danger ml-2"><i class="fas fa-trash"></i></a>
 
                                     </td>
                                 </tr>
@@ -234,50 +171,10 @@ if (mysqli_num_rows($result) > 0) {
                 
                 
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="fas fa-plus"></i> Ajouter
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title text-dark" id="exampleModalLabel">Enter New Contact</h5>
-                            </div>
-                            <div class="modal-body">
-                                <div class="container">
-                                    <form action="../includes/formContactsHandler.inc.php?id=<?php
-                                        '$id_user'
-                                    ?>" method="POST">
-                                        <div class="mb-3">
-                                            <label for="nom" class="form-label text-dark">Nom</label>
-                                            <input type="text" class="form-control" name="nom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="prenom" class="form-label text-dark">Prénom</label>
-                                            <input type="text" class="form-control" name="prenom">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="email" class="form-label text-dark">Email</label>
-                                            <input type="email" class="form-control" name="email">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="numero" class="form-label text-dark">Numéro de téléphone</label>
-                                            <input type="tel" class="form-control" name="telephone">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+ 
+                <?php
+                    include_once("../components/modalFormAjoutContact.php")
+                ?>
 
 
 

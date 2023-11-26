@@ -4,9 +4,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $prenom = $_POST["prenom"];
     $telephone = $_POST["telephone"];
     $email = $_POST["email"];
-    
     // Validate and sanitize the id_user parameter
-    $id_user = isset($_GET["id"]) ? intval($_GET["id"]) : 0; // Assuming 0 as default if id is not provided
+    $id_user = isset($_GET["id"]) ? intval($_GET["id"]): 0; // Assuming 0 as default if id is not provided
 
     // Include the database connection
     include("dbh.inc.php");

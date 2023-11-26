@@ -9,6 +9,9 @@
     <title>Contact Management App</title>
 </head>
 <body>
+<?php  
+   $id_user = $_GET["id"]; 
+     ?>  
 <nav class="navbar navbar-expand-lg navbar-light">
         <a class="navbar-brand" href="#">YOUCONTACT</a>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -22,16 +25,16 @@
             </ul>
         </div>
         <div class="dropdown">
-            <a class="nav-link dropdown-toggle" href="profile.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Profile
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="../includes/logoutHandler.inc.php">Logout</a>
+                <a class="dropdown-item" href="profile">Profile</a>
+                <a class="dropdown-item" href="../includes/logoutHandler.inc.php?&id_user=<?php echo $id_user; ?>">Logout</a>
             </div>
         </div>
     </nav>
     <?php  
-   $id_user = $_GET["id"];
      include_once('../includes/getData.inc.php');  
      ?>  
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
