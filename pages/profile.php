@@ -14,10 +14,9 @@
         <div class="col-12 col-md-6 ">
           <img src="../images/profile.jpg" alt="Profile Picture" class="profile-pic">
         <div class="profile-info t">
-          <h2 class="profile-name ">John Doe</h2>
-          <p class="profile-text "><strong>Phone:</strong> 123-456-7890</p>
-          <p class="profile-text text-start "><strong>Email:</strong> johndoe@example.com</p>
-          <p class="profile-text "><strong>Date d'inscription:</strong> 01/01/2022</p>
+          <?php
+              include("../includes/Profile.inc.php");
+          ?>
         </div>
       </div>
     </div>

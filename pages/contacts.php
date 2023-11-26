@@ -29,7 +29,7 @@
                 Profile
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="profile">Profile</a>
+                <a class="dropdown-item" href="profile.php?&id_user=<?php echo $id_user; ?>">Profile</a>
                 <a class="dropdown-item" href="../includes/logoutHandler.inc.php?&id_user=<?php echo $id_user; ?>">Logout</a>
             </div>
         </div>
