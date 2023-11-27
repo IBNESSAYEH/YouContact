@@ -1,0 +1,3 @@
+<footer class="row justify-content-center align-items-center py-4 ">
+<p class="col-8">Bienvenue sur notre projet de gestion de contacts ! Simplifiez votre communication et restez organisé avec notre plateforme conviviale." "Gérez efficacement tous vos contacts en un seul endroit avec notre système de gestion de contacts intuitif." "Prenez le contrôle de vos contacts et construisez des relations solides avec notre solution complète de gestion de contacts."</p>
+</footer>

@@ -4,7 +4,8 @@
         :root {
             --main-text-color: white;
             --second-text-color: black;
-            --main-bg-color: #21209C;
+            
+            --main-bg-color: #6b63ffc4 ;
             --second-bg-color: white;
             --main-btn-bg-color: #7171ff;
         }
@@ -51,7 +52,7 @@
         
         .form-group input:focus {
             outline: none;
-            border-bottom: 2px solid var(--main-btn-bg-color);
+            border-bottom: 2px solid var(--main-bg-color);
         }
         
         .btn-primary {

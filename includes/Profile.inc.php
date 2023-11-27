@@ -4,8 +4,8 @@
   
    
     $id_user = $_GET["id_user"];
-
-    // Include the database connection
+if( $id_user){
+      // Include the database connection
     include("dbh.inc.php");
 
     // Prepare the SQL query with proper syntax and data binding
@@ -39,4 +39,8 @@
     // Close the database connection
     mysqli_close($conn);
 
+?>
+<?php
+ }
+   
 ?>

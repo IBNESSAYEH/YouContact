@@ -17,38 +17,45 @@
                     <a class="nav__logo navbar-brand" href="#"><span>You</span>Contact</a>
                 </div>
                 <div class="col text-end">
-                    <a href="pages/login.php" class='nav__link  '>log in</a>
-                    <a href="pages/inscription.php" class='nav__button'>connection</a>
+                    <a href="pages/login.php" class='nav__link  btn btn-outline-primary'>log in</a>
+                    <a href="pages/inscription.php" class='nav__button btn btn-primary '>connection</a>
                 </div>
             </div>
         </div>
     </nav>
 <!--   -->
-<main class="cotainer-fluid">
+<main class="cotainer-fluid ">
     <section class="row main__section ">
-        <div class="col main__section__imgs d-flex justify-content-around align-items-center">
-            <img  src="images/TaskDetail.png" alt="">
-            <img  src="images/UserStory.png" alt="">
-        </div>
+       
         <div class="col main__section__info d-flex flex-column  justify-content-around align-items-center ">
             <div class="w-50 col-12 ">
             <img class="w-100" src="images/image.png" alt="">
             </div>
             <div class="w-75 col-12 ">
                 <p>
-                "Bienvenue sur notre projet de gestion de contacts ! Simplifiez votre communication et restez organisé avec notre plateforme conviviale."
-"Gérez efficacement tous vos contacts en un seul endroit avec notre système de gestion de contacts intuitif."
+                <h2 class="text-center">Bienvenue sur <a class="nav__logo navbar-brand" href="#"><span>You</span>Contact</a> !</h2>
+               
 "Prenez le contrôle de vos contacts et construisez des relations solides avec notre solution complète de gestion de contacts."
                 </p>
+                <div class="col text-center col-12">
+                    <a href="pages/login.php" class='nav__link  btn btn-outline-primary'>log in</a>
+                    <a href="pages/inscription.php" class='nav__button btn btn-primary '>connection</a>
+                </div>
             </div>
         </div>
-
+        <div class="col main__section__imgs d-none d-lg-flex justify-content-around align-items-center ">
+            <img  src="images/TaskDetail.png" alt="">
+            <img  src="images/UserStory.png" alt="">
+        </div>
     </section>
 
 </main>
+<?php
+    include_once("components/footer.php")
+?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </body>
 
 </html>
-!
+

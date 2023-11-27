@@ -15,13 +15,15 @@ a, button{
     --main-text-color: white;
     --second-text-color: #000000;
     --main-bg-color: #6c63ff ;
-    --second-bg-color: white;
+    --second-bg-color: rgb(216, 215, 215);
     --main-btn-bg-color: #0707fb;
 }
 nav{
     color: var( --second-text-color);
-    background-color: var(--second-bg-color);
-    border-bottom:solid 1px #17171a5e;
+    position: fixed;
+    height: 4rem;
+    width: 100vw;
+    background-color: var(--main-text-color);
 }
 .nav__logo{
     font-family: 'Vina Sans', sans-serif;
@@ -33,25 +35,39 @@ nav{
 }
 .nav__button{
     text-decoration: none !important;
-    color: var( --main-text-color);
-    font-family:  monospace;
-    padding: .3rem;
-    background-color: var(--main-btn-bg-color);
-    border-radius: 1rem;
+   
+ 
+  
     margin-left: 1rem;
     transition: 1s;
 }
 .nav__button:hover{
     transform: scale(1.1);
 }
+main{
+    padding: 7rem;
+}
+section{
+    border-radius: 1rem;
+    box-shadow: .2rem  .2rem   .5rem   .1rem var(--second-text-color);
+}
 .main__section{
-    height: 90vh;
+    height: 75vh;
+    /* background-color: var(--second-bg-color); */
 }
 .main__section__imgs{
     height: inherit;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
     background-color: var(--main-bg-color);
 }
 .main__section__imgs img{
-    height: 70vh !important;
-    width: 37vh !important;
+    height: 55vh !important;
+    width: 30vh !important;
+    border-radius: 1rem;
+    
+    box-shadow: .2rem  .2rem   .5rem   .1rem var(--second-text-color);
+}
+footer{
+    background-color: var(--second-bg-color);
 }
