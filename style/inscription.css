@@ -13,7 +13,7 @@
         body {
             min-height: 100Vh;
             max-height: fit-content;
-            background-color: var(--main-bg-color);
+            background-color: var(--second-bg-color);
             display: flex;
             justify-content: center;
             align-items: center;
